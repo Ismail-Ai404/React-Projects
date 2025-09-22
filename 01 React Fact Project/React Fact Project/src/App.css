@@ -1,11 +1,11 @@
 /** @format */
 
-#root {
+/* #root {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 2rem;
 	/* text-align: center; */
-}
+} */
 
 .logo {
 	height: 4em;
@@ -35,6 +35,6 @@
 	}
 }
 
-.card {
+/* .card {
 	padding: 2em;
-}
+} */
