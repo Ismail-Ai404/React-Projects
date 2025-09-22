@@ -1,8 +1,9 @@
 /** @format */
+import "./MainComponent.css";
 
 export default function MainComponent() {
 	return (
-		<>
+		<main>
 			<h1>Fun facts about React</h1>
 			<ul>
 				<li>Was first released in 2013</li>
@@ -14,6 +15,6 @@ export default function MainComponent() {
 					apps
 				</li>
 			</ul>
-		</>
+		</main>
 	);
 }
