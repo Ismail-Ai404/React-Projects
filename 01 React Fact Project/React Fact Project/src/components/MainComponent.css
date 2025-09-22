@@ -3,20 +3,31 @@
 main {
 	background-color: #282d35;
 	color: white;
-	padding: 60px 30px;
+	padding: 60px 70px;
+	background-image: url(../assets/react-logo-half.png);
+
+	background-repeat: no-repeat;
+	background-position: right 90%;
+	padding-bottom: 10%;
 }
 
 main > h1 {
 	margin: 0;
-	font-size: 2.4rem;
+	font-size: 7.4rem;
 }
 
 ul {
 	margin-top: 46px;
-	max-width: 400px;
+	max-width: 700px;
 }
 
 ul > li {
 	padding-block: 10px;
-	line-height: 19px;
+	line-height: 40px;
+	font-size: 2em;
+}
+
+ul > li::marker {
+	color: #61dafb;
+	font-size: 1.5rem;
 }

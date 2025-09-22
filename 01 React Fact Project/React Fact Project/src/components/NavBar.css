@@ -1,7 +1,7 @@
 /** @format */
 
 header {
-	height: 90px;
+	height: 200px;
 	/* width: 450px; */
 	background-color: #21222a;
 	align-items: center;
@@ -21,7 +21,7 @@ nav > a {
 	margin-right: 7px;
 }
 img {
-	width: 55px;
+	width: 155px;
 }
 
 a {
@@ -35,4 +35,5 @@ a:hover {
 
 h1 {
 	margin-left: 7px;
+	font-size: 4em;
 }
