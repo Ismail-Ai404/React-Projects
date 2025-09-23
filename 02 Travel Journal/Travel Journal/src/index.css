@@ -148,7 +148,7 @@ article.journal-entry .main-image {
 	line-height: 1.5;
 	font-size: 1.2rem;
 	display: -webkit-box;
-	-webkit-line-clamp: 4;
+	line-clamp: 4;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	margin-right: 50%;
