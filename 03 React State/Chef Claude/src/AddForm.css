@@ -4,17 +4,19 @@
 	display: flex;
 	justify-content: center;
 	gap: 14px;
-	height: 42px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
 }
 
 .add-ingredient-form > input {
 	border-radius: 6px;
 	border: 1px solid #d1d5db;
 	padding: 9px 13px;
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 	flex-grow: 1;
-	min-width: 150px;
+	min-width: 200px;
 	max-width: 400px;
+	font-size: 0.95rem;
 }
 
 .add-ingredient-form > button {
@@ -23,9 +25,10 @@
 	border: none;
 	background-color: #141413;
 	color: #fafaf8;
-	width: 150px;
-	font-size: 0.865rem;
+	padding: 10px 16px;
+	font-size: 0.9rem;
 	font-weight: 500;
+	transition: background 0.2s ease;
 }
 
 .add-ingredient-form > button::before {
@@ -38,121 +41,87 @@
 	cursor: pointer;
 }
 
-/* .ingredient-list {
-	margin: 40px 22% 20px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 0.25fr));
-	gap: 20px;
-	font-weight: 500;
-	background-color: white;
-	border-radius: 6px;
-	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08),
-		0px 1px 2px 0px rgba(0, 0, 0, 0.04);
-
-	align-items: center;
-	height: min(200px, max(500px, 55vh));
-} */
 .list-heading {
 	font-weight: 400;
-	font-size: 1.1rem;
-	margin: 20px 22% 10px;
-	color: #333;
+	font-size: 1rem;
+	margin: 10px 20% 15px;
+	color: #666; /* lighter tone */
 }
 
+/* Container for ingredient list */
 .ingredient-list {
-	margin: 0 22% 20px;
+	margin: 0 auto 20px;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 0.5fr));
-	gap: 20px;
-	padding: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 16px;
+	padding: 16px;
 	background-color: white;
-	border-radius: 6px;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08),
-		0px 1px 2px rgba(0, 0, 0, 0.04);
+	border-radius: 10px;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+	max-width: 600px;
 }
 
-.ingredient-card {
-	background-color: #fafafa;
-	border-radius: 6px;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08),
-		0px 1px 2px rgba(0, 0, 0, 0.04);
-	padding: 16px;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+/* Compact for single item */
+.ingredient-list:has(.ingredient-card:only-child) {
+	grid-template-columns: minmax(200px, 260px);
 	justify-content: center;
-	width: auto;
+}
+
+/* Ingredient card */
+.ingredient-card {
+	position: relative; /* so delete button can be absolutely positioned */
+	background-color: #fafafa;
+	border-radius: 8px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center; /* center text */
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ingredient-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+	background-color: #f5f5f5;
 }
 
 .ingredient-card h2 {
 	margin: 0;
-	font-weight: 500;
-	font-size: 1.1rem;
-}
-
-.ingredient-card p,
-.hint {
-	margin: 8px 0 0;
-	font-size: 0.85rem;
-	color: #6b7280;
-}
-.hint {
-	font-style: italic;
-	margin: 20px 22% 10px;
-}
-
-/* .ingredient-card {
-	background-color: white;
-	border-radius: 6px;
-	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08),
-		0px 1px 2px 0px rgba(0, 0, 0, 0.04);
-	padding: 12px 18px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	height: 50%;
-	min-height: 40px;
 	font-size: 1rem;
 	font-weight: 500;
-} */
-
-/* .ingredient-card h2 {
-	margin: 0;
-	font-weight: 500;
-	font-size: 1.25rem;
+	color: #111;
 }
 
-.ingredient-card p {
-	margin: 10px 0 0;
-	font-size: 0.875rem;
-	color: #6b7280;
-	flex-grow: 1;
-} */
-
-.ingredient-card button {
-	font-family: Inter, sans-serif;
-	border-radius: 6px;
+/* Cross button */
+.delete-btn {
+	position: absolute;
+	right: 10px; /* lil gap to the right */
+	top: 50%;
+	transform: translateY(-50%);
+	background: transparent;
+	color: #888;
 	border: none;
-	background-color: #dc2626;
-	color: #fafaf8;
-	width: 100%;
-	height: 35px;
-	font-size: 0.865rem;
-	font-weight: 500;
-	margin-top: 10px;
-}
-
-.ingredient-card button:hover {
-	background-color: #b91c1c;
+	font-size: 1.2rem;
 	cursor: pointer;
-}
-.ingredient-card button:disabled {
-	background-color: #fca5a5;
-	cursor: not-allowed;
+	opacity: 0; /* hidden by default */
+	transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.ingredient-card button:disabled:hover {
-	background-color: #fca5a5;
-	cursor: not-allowed;
+.ingredient-card:hover .delete-btn {
+	opacity: 1; /* show on hover */
+}
+
+.delete-btn:hover {
+	color: #ef4444; /* red hover */
+}
+
+/* Hint (initial message) */
+.hint {
+	font-style: italic;
+	margin: 30px auto;
+	font-size: 0.95rem;
+	color: #6b7280;
+	text-align: center;
+	max-width: 400px;
 }

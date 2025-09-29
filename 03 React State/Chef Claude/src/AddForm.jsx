@@ -13,6 +13,10 @@ export default function AddForm() {
 		setInput("");
 	}
 
+	function handleDelete(index) {
+		setIngredients((prev) => prev.filter((_, i) => i !== index));
+	}
+
 	return (
 		<main>
 			<form onSubmit={handleSubmit} className="add-ingredient-form">
@@ -35,14 +39,21 @@ export default function AddForm() {
 
 			{ingredients.length > 0 && (
 				<>
-					<p className="list-heading">List of ingredients:</p>
-					<div className="ingredient-list">
+					<p className="list-heading">Ingredients on hand:</p>
+					<ol className="ingredient-list">
 						{ingredients.map((ing, i) => (
-							<div key={i} className="ingredient-card">
+							<li key={i} className="ingredient-card">
 								<h2>{ing}</h2>
-							</div>
+								<button
+									className="delete-btn"
+									onClick={() => handleDelete(i)}
+									aria-label="Delete ingredient"
+								>
+									×
+								</button>
+							</li>
 						))}
-					</div>
+					</ol>
 				</>
 			)}
 		</main>
