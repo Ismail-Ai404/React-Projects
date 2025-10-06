@@ -1,15 +1,18 @@
 /** @format */
-import "./AddForm.css";
-import { useState } from "react";
-export default function Ingredients({ ingredients, onDelete }) {
+import "./Body.css";
+export default function Ingredients({
+	ingredients,
+	onDelete,
+	toggleRecipeShown,
+	recipeShown,
+}) {
 	return (
 		<>
-			{ingredients.length === 0 && (
+			{!recipeShown && ingredients.length === 0 && (
 				<p className="hint">
 					Claude will suggest recipes based on these ingredients.
 				</p>
 			)}
-
 			{ingredients.length > 0 && (
 				<>
 					<p className="list-heading">Ingredients on hand:</p>
@@ -27,6 +30,20 @@ export default function Ingredients({ ingredients, onDelete }) {
 							</li>
 						))}
 					</ol>
+					{ingredients.length > 3 && (
+						<div className="get-recipe-container">
+							<div>
+								<h3>Ready for a recipe?</h3>
+								<p>
+									Generate a recipe from your list of
+									ingredients.
+								</p>
+							</div>
+							<button onClick={toggleRecipeShown}>
+								Get a recipe
+							</button>
+						</div>
+					)}
 				</>
 			)}
 		</>

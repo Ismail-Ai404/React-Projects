@@ -1,11 +1,17 @@
 /** @format */
 import { useState } from "react";
-import "./AddForm.css";
+import "./Body.css";
 import Ingredients from "./Ingredients";
+import ClaudeRecipe from "./ClaudeRecipe";
 
 export default function AddForm() {
 	const [input, setInput] = useState("");
 	const [ingredients, setIngredients] = useState([]);
+	const [recipe, setRecipe] = useState(false);
+
+	function toggle() {
+		setRecipe((prev) => !prev);
+	}
 
 	function submit(data) {
 		if (!input.trim()) return;
@@ -30,7 +36,14 @@ export default function AddForm() {
 				/>
 				<button>Add ingredient</button>
 			</form>
-			<Ingredients ingredients={ingredients} onDelete={handleDelete} />
+
+			<Ingredients
+				ingredients={ingredients}
+				onDelete={handleDelete}
+				toggleRecipeShown={toggle}
+				recipeShown={recipe}
+			/>
+			{recipe && <ClaudeRecipe toggle={toggle} recipeOn={recipe} />}
 		</main>
 	);
 }

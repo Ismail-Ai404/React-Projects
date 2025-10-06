@@ -1,13 +1,13 @@
 /** @format */
 
 import Header from "./Header";
-import AddForm from "./AddForm";
+import Body from "./Body";
 
 export default function App() {
 	return (
 		<>
 			<Header />
-			<AddForm />
+			<Body />
 		</>
 	);
 }
