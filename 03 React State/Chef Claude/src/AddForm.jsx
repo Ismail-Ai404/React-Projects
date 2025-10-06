@@ -6,8 +6,7 @@ export default function AddForm() {
 	const [input, setInput] = useState("");
 	const [ingredients, setIngredients] = useState([]);
 
-	function handleSubmit(e) {
-		e.preventDefault();
+	function submit(data) {
 		if (!input.trim()) return;
 		setIngredients((prev) => [...prev, input]);
 		setInput("");
@@ -19,7 +18,7 @@ export default function AddForm() {
 
 	return (
 		<main>
-			<form onSubmit={handleSubmit} className="add-ingredient-form">
+			<form action={submit} className="add-ingredient-form">
 				<input
 					type="text"
 					placeholder="e.g. oregano"
