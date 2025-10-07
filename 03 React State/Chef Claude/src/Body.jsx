@@ -6,12 +6,7 @@ import ClaudeRecipe from "./ClaudeRecipe";
 
 export default function AddForm() {
 	const [input, setInput] = useState("");
-	const [ingredients, setIngredients] = useState([
-		"chicken",
-		"rice",
-		"onions",
-		"garlic",
-	]);
+	const [ingredients, setIngredients] = useState([]);
 	const [recipe, setRecipe] = useState(false);
 
 	function toggle() {

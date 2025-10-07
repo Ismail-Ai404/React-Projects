@@ -1,6 +1,8 @@
 /** @format */
 import { useEffect, useState } from "react";
 import { getRecipeFromMistral } from "./ai";
+import ReactMarkdown from "react-markdown";
+import "./ClaudeRecipe.css";
 
 export default function ClaudeRecipe({ recipeOn, toggle, ingredients }) {
 	const [generatedRecipe, setGeneratedRecipe] = useState(null);
@@ -20,21 +22,25 @@ export default function ClaudeRecipe({ recipeOn, toggle, ingredients }) {
 	}, [ingredients, recipeOn]);
 
 	return (
-		<section>
-			<h2>Chef Claude Recommends:</h2>
-			<article
-				className="suggested-recipe-container"
-				aria-live="polite"
-			>
-				{error && <p style={{ color: "red" }}>{error}</p>}
-				{!generatedRecipe && !error && <p>Loading recipe...</p>}
-				{generatedRecipe && (
-					<div>
-						{/* Render your recipe here, e.g.: */}
-						<p>{generatedRecipe}</p>
-					</div>
-				)}
-			</article>
+		<section className="recipe-container">
+			{error && <p className="error-text">{error}</p>}
+
+			{!generatedRecipe && !error && (
+				<div className="loading">
+					<div className="spinner"></div>
+					<p>Fetching your delicious recipe… 🍳</p>
+				</div>
+			)}
+
+			{generatedRecipe && (
+				<div className="recipe-content">
+					<ReactMarkdown>{generatedRecipe}</ReactMarkdown>
+				</div>
+			)}
+
+			<button className="close-btn" onClick={toggle}>
+				Close
+			</button>
 		</section>
 	);
 }

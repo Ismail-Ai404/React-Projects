@@ -1,12 +1,12 @@
 /** @format */
 
-import chefClaudeLogo from "./assets/Chef Claude Icon.svg";
+import chefClaudeLogo from "./assets/Chef Ismail.jpg";
 
 export default function Header() {
 	return (
 		<header>
 			<img src={chefClaudeLogo} />
-			<h1>Chef Claude</h1>
+			<h1>Chef Ismail</h1>
 		</header>
 	);
 }

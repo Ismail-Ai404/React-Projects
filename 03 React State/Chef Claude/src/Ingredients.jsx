@@ -10,7 +10,7 @@ export default function Ingredients({
 		<>
 			{!recipeShown && ingredients.length === 0 && (
 				<p className="hint">
-					Claude will suggest recipes based on these ingredients.
+					I will suggest recipes based on your ingredients.
 				</p>
 			)}
 			{ingredients.length > 0 && (

@@ -7,6 +7,8 @@ You are pretending to be me (Ismail) so greet them accordingly as this will go i
 
 // Initialize Cerebras client using Vite env variable
 const cerebrasApiKey = import.meta.env.VITE_CEREBRAS_API_KEY;
+//TODO ADD the env here
+
 if (!cerebrasApiKey) {
 	throw new Error(
 		"Cerebras API key missing: Please set VITE_CEREBRAS_API_KEY in your .env file and restart the dev server."
