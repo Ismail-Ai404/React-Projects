@@ -6,7 +6,12 @@ import ClaudeRecipe from "./ClaudeRecipe";
 
 export default function AddForm() {
 	const [input, setInput] = useState("");
-	const [ingredients, setIngredients] = useState([]);
+	const [ingredients, setIngredients] = useState([
+		"chicken",
+		"rice",
+		"onions",
+		"garlic",
+	]);
 	const [recipe, setRecipe] = useState(false);
 
 	function toggle() {
@@ -43,7 +48,13 @@ export default function AddForm() {
 				toggleRecipeShown={toggle}
 				recipeShown={recipe}
 			/>
-			{recipe && <ClaudeRecipe toggle={toggle} recipeOn={recipe} />}
+			{recipe && (
+				<ClaudeRecipe
+					toggle={toggle}
+					recipeOn={recipe}
+					ingredients={ingredients}
+				/>
+			)}
 		</main>
 	);
 }
